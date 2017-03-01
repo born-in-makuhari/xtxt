@@ -1,8 +1,9 @@
-console.log('')
-console.log('  xtxt  ')
-console.log('')
+console.log('|--------|')
+console.log('|  xtxt  |')
+console.log('|--------|')
 
 var parser = require('excel');
+var eaw = require('eastasianwidth');
 
 parser('testbook.xlsx', function(err, data) {
   if (err) throw err;
@@ -19,8 +20,9 @@ function render(aa) {
   var ml = [];
   aa.forEach(function(r) {
     r.forEach(function(cell, i) {
-      if (ml[i] == null || ml[i] < cell.length) {
-        ml[i] = cell.length;
+      var l = eaw.length(cell);
+      if (ml[i] == null || ml[i] < l) {
+        ml[i] = l;
       }
     });
   });
@@ -28,7 +30,8 @@ function render(aa) {
   var txt = "";
   aa.forEach(function(r) {
     r.forEach(function(cell, i) {
-      var spaces = Array(ml[i] - cell.length + 2 + 1).join(' '); // 余白2つ
+      var l = eaw.length(cell);
+      var spaces = Array(ml[i] - l + 2 + 1).join(' '); // 余白2つ
       txt = txt + cell + spaces;
     });
     txt = txt + "\n";
