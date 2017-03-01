@@ -4,7 +4,8 @@
   "main": "main.js",
   "dependencies": {
     "eastasianwidth": "^0.1.1",
-    "excel": "^0.1.7"
+    "excel": "^0.1.7",
+    "readline-sync": "^1.4.6"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
