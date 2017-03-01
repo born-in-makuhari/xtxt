@@ -2,4 +2,10 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  .form-group
+    form(name="submit-file", method="post")
+      .input
+        label.col-md-2.control-label ファイル
+        input#inputImage(name="file" type="file")
+      .action
+        input(type="submit", value="変換")
