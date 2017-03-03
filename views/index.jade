@@ -1,7 +1,8 @@
 extends layout
 
 block content
-  h1= title
+  a(href="/")
+    h1= title
   .form-group
     form(name="submit-file", method="post", enctype="multipart/form-data")
       .input
@@ -9,4 +10,4 @@ block content
         input#file(name="file", type="file")
       .action
         input(type="submit", value="変換")
-  .result= txt
+  textarea#result= txt
