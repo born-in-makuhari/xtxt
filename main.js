@@ -8,4 +8,4 @@ var readlineSync = require('readline-sync');
 // get filename
 let filename = readlineSync.question('input filename: ');
 
-xtxt(filename);  
+console.log(xtxt(filename));  

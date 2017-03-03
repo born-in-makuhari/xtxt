@@ -1,16 +1,16 @@
 var parser = require('excel');
 var eaw = require('eastasianwidth');
 
-module.exports = function (filename) {
+module.exports = function (filename, callback) {
 
   // load xlsx file
   parser(filename, function(err, data) {
     if (err) throw err;
-    render(data);
+    render(data, callback);
   });
 };
 
-function render(aa) {
+function render(aa, callback) {
   // get max length (ml) of each col
   var ml = [];
   aa.forEach(function(r) {
@@ -32,5 +32,6 @@ function render(aa) {
     txt = txt + "\n";
   });
 
-  console.log(txt);
+  var err;
+  callback(txt, err);
 }

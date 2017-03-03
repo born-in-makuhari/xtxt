@@ -3,9 +3,10 @@ extends layout
 block content
   h1= title
   .form-group
-    form(name="submit-file", method="post")
+    form(name="submit-file", method="post", enctype="multipart/form-data")
       .input
         label.col-md-2.control-label ファイル
-        input#inputImage(name="file", type="file")
+        input#file(name="file", type="file")
       .action
         input(type="submit", value="変換")
+  .result= txt
